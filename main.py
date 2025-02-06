@@ -23,6 +23,21 @@ class DocumentoProxy:
         if self.usuario.autorizado():
             return self.documento.exibir()
         else:
-            return f"Acesso Negado: Usuário {self.usuario.nome} nao possui permissao para visualizar este documento."
+            return f"Acesso Negado: Usuario {self.usuario.nome} nao possui permissao para visualizar este documento."
 
+
+if __name__ == "__main__":
+    doc_confidencial = Documento("Informações sensíveis da empresa.")
+
+    usuario_admin = Usuario("Carlos", "admin")
+    usuario_funcionario = Usuario("Mariana", "funcionario")
+
+    proxy_admin = DocumentoProxy(doc_confidencial, usuario_admin)
+    proxy_funcionario = DocumentoProxy(doc_confidencial, usuario_funcionario)
+
+    print("Acesso do Administrador:\n")
+    print(proxy_admin.exibir())
+    
+    print("Acesso do Funcionário:")
+    print(proxy_funcionario.exibir())
 
