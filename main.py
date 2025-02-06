@@ -6,8 +6,6 @@ class Documento:
     def exibir(self):
         return f"Conteudo do Documento: {self.conteudo}"
 
-
-
 class Usuario:
     def __init__(self, nome, cargo):
         self.nome = nome
@@ -15,8 +13,6 @@ class Usuario:
 
     def autorizado(self):
         return self.cargo.lower() in ['admin', 'gerente']
-
-
 
 class DocumentoProxy:
     def __init__(self, documento, usuario):
