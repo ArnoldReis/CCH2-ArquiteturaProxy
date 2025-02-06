@@ -27,7 +27,7 @@ class DocumentoProxy:
 
 
 if __name__ == "__main__":
-    doc_confidencial = Documento("Informações sensíveis da empresa.")
+    doc_confidencial = Documento("Informaçoes sensiveis da empresa.")
 
     usuario_admin = Usuario("Carlos", "admin")
     usuario_funcionario = Usuario("Mariana", "funcionario")
@@ -38,6 +38,6 @@ if __name__ == "__main__":
     print("Acesso do Administrador:\n")
     print(proxy_admin.exibir())
     
-    print("Acesso do Funcionário:")
+    print("Acesso do Funcionario:")
     print(proxy_funcionario.exibir())
 
