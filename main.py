@@ -1,5 +1,11 @@
+from abc import abstractmethod
 
-class Documento:
+class DocumentoInterface:
+    @abstractmethod
+    def exibir(self):
+        pass
+
+class Documento(DocumentoInterface):
     def __init__(self, conteudo):
         self.conteudo = conteudo
 
@@ -14,7 +20,7 @@ class Usuario:
     def autorizado(self):
         return self.cargo.lower() in ['admin', 'gerente']
 
-class DocumentoProxy:
+class DocumentoProxy(DocumentoInterface):
     def __init__(self, documento, usuario):
         self.documento = documento
         self.usuario = usuario
@@ -27,7 +33,7 @@ class DocumentoProxy:
 
 
 if __name__ == "__main__":
-    doc_confidencial = Documento("Informaçoes sensiveis da empresa.")
+    doc_confidencial = Documento("Informacoes sensiveis da empresa.")
 
     usuario_admin = Usuario("Carlos", "admin")
     usuario_funcionario = Usuario("Mariana", "funcionario")
@@ -35,9 +41,9 @@ if __name__ == "__main__":
     proxy_admin = DocumentoProxy(doc_confidencial, usuario_admin)
     proxy_funcionario = DocumentoProxy(doc_confidencial, usuario_funcionario)
 
-    print("Acesso do Administrador:\n")
+    print("Acesso do Administrador:")
     print(proxy_admin.exibir())
     
-    print("Acesso do Funcionario:")
+    print("\nAcesso do Funcionario:")
     print(proxy_funcionario.exibir())
 
