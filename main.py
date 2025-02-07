@@ -18,7 +18,7 @@ class Usuario:
         self.cargo = cargo
 
     def autorizado(self):
-        return self.cargo.lower() in ['admin', 'gerente']
+        return self.cargo.lower() in ['admin', 'gerente','coordenador']
 
 class DocumentoProxy(DocumentoInterface):
     def __init__(self, documento, usuario):
