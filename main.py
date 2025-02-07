@@ -37,13 +37,18 @@ if __name__ == "__main__":
 
     usuario_admin = Usuario("Carlos", "admin")
     usuario_funcionario = Usuario("Mariana", "funcionario")
+    usuario_estagiaria = Usuario("Fernanda", "estagiaria")
 
     proxy_admin = DocumentoProxy(doc_confidencial, usuario_admin)
     proxy_funcionario = DocumentoProxy(doc_confidencial, usuario_funcionario)
+    proxy_estagiaria = DocumentoProxy(doc_confidencial, usuario_estagiaria)
 
     print("Acesso do Administrador:")
     print(proxy_admin.exibir())
     
     print("\nAcesso do Funcionario:")
     print(proxy_funcionario.exibir())
+    
+    print("\nAcesso do Estagiaria:")
+    print(proxy_estagiaria.exibir())
 
